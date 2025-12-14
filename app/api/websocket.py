@@ -123,7 +123,7 @@ async def websocket_ticks(
 
     try:
         while True:
-            await asyncio.sleep(3)
+            await asyncio.sleep(3.5)
             status_text = _determine_status(datetime.now(_MARKET_TZ))
             latest_ticks: List[Dict[str, Any]] = []
             if status_text == "trading":
