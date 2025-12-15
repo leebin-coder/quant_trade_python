@@ -173,6 +173,13 @@ class RealtimeTickFetcher:
                         if stock.get("exchange") != "BSE"
                     ]
 
+                    # 临时仅采集工商银行（601398.SH）
+                    target_codes = {"601398.SH"}
+                    stock_codes = [
+                        code for code in stock_codes
+                        if code in target_codes
+                    ]
+
                     logger.info(f"成功获取 {len(stock_codes)} 只股票（已排除北交所）")
                     return stock_codes
                 else:
